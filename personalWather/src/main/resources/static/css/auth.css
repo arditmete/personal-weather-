@@ -1,0 +1,87 @@
+.auth-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    /* background-image: url("../img/auth-bg.jpg"); */
+}
+
+.auth-form {
+    width: 350px;
+    padding: 20px 0;
+    margin-left: calc(50% - 175px);
+}
+
+.login-form {
+    margin-top: calc(50vh - 280px);
+}
+
+.register-form {
+    margin-top: calc(50vh - 300px);
+}
+
+.auth-form form {
+    color: #434343;
+    border-radius: 1px;
+    margin-bottom: 0px;
+    background: #fff;
+    border: 1px solid #f3f3f3;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+
+.auth-form h4 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.login-form .avatar {
+    color: #fff;
+    margin: 0 auto 30px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    z-index: 9;
+    background: #337ab7;
+    padding: 15px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.login-form .avatar i {
+    font-size: 62px;
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+}
+
+.auth-form .form-control, .login-form .btn {
+    min-height: 40px;
+    border-radius: 2px;
+    transition: all 0.5s;
+}
+
+.auth-form .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.auth-form .checkbox-inline {
+    float: left;
+}
+
+.auth-form input[type="checkbox"] {
+    margin-top: 2px;
+}
+
+.login-form .forgot-link {
+    float: right;
+}
+
+.auth-action-helper {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: whitesmoke;
+}

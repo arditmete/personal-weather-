@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/sidebar.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"
+	integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" media="screen"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" />
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('#productName').autocomplete({
+                source: 'http://localhost:8082/search',
+                minLength: 3,
+                delay: 0,
+                 autoSelectFirst: true,
+                 caseSensitive: false
+            });
+        });
+    </script>
+<title>Personal Weather Station</title>
+<style type="text/css">
+.text {
+	color: white;
+}
+</style>
+
+</head>
+<body class="bg-dark">
+	<div id="test" style="width: 100%; height: 100%;"></div>
+	<div class="wrapper">
+		<!-- Sidebar Holder -->
+		<nav id="sidebar">
+			<div class="sidebar-header">
+				<h3>City Menu</h3>
+			</div>
+
+			<ul class="list-unstyled components">
+				<li class="active"><a href="/myCities">My Cities</a></li>
+				<li><a href="/myLocation">My Location</a></li>
+				<li><a href="/favoriteCities">Favorite Cities</a></li>
+				<li><a href="/addCity">Add City</a></li>
+			</ul>
+		</nav>
+
+		<!-- Page Content Holder -->
+		<div id="content">
+
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<div class="container-fluid">
+
+					<button type="button" id="sidebarCollapse" class="navbar-btn">
+						<span></span> <span></span> <span></span>
+					</button>
+					<button class="btn btn-dark d-inline-block d-lg-none ml-auto"
+						type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<i class="fas fa-align-justify"></i>
+					</button>
+					<h5 class="text">Personal Weather Station</h5>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="nav navbar-nav ml-auto">
+							<li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+							<li class="nav-item"><a class="nav-link"
+								href="/user-settings">Settings</a></li>
+							<li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+			<div class="container py-5">
+				<div class="row">
+					<div class="col-10 mx-auto">
+						<div class="form-group">
+							<form th:action="@{/saveCity}" method="post">
+								<label for="productName" class="text">Search City:</label> <input
+									type="text" class="form-control" id="productName"
+									th:name="term" placeholder="Enter City"><br><br>
+								<button class="btn btn-primary">Submit</button>
+							</form>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+			<div th:replace="shared/footer :: footer" class="text"></div>
+		</div>
+	</div>
+</body>
+</html>

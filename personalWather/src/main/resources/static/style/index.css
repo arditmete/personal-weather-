@@ -1,0 +1,4 @@
+.container-fluid #greetings {
+    margin-top: 0 !important;
+    padding-top: calc(50vh - 280px);
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="weather-weekly">
+		<div id="weather-data" class="row section-box mx-auto d-none">
+
+			<!-- Weekly Weather Table about selected city-->
+			<table id="weather-table"
+				class="table table-striped table-hover align-middle">
+
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Day</th>
+						<th scope="col">Conditions</th>
+						<th scope="col">Temperature</th>
+						<th scope="col">Precipitation</th>
+						<th scope="col">Air Pressure</th>
+						<th scope="col">Wind Speed</th>
+						<th scope="col">Wind Direction</th>
+					</tr>
+				</thead>
+
+				<!-- Auto-generated Weekly Weather Info-->
+				<tbody>
+					<tr th:each="weatherWeek : ${weatherWeekly}">
+						<td th:text="${weatherWeek.getTimeDay()}"></td>
+						<td th:text="${weatherWeek.icon}"></td>
+						<td th:inline="text">[[${weatherWeek.getTemperatureInCelsius()}]]
+							&#8451;</td>
+						<td th:inline="text">[[${weatherWeek.precipIntensity}]] %</td>
+						<td th:inline="text">[[${weatherWeek.pressure}]] mb</td>
+						<td th:inline="text">[[${weatherWeek.windSpeed}]] %</td>
+						<td th:text="${weatherWeek.windBearing}"></td>
+					</tr>
+
+				</tbody>
+
+			</table>
+		</div>
+	</div>

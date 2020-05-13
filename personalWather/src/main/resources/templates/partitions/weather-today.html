@@ -1,0 +1,40 @@
+<div th:fragment="weather-today">
+	<div id="weather-today" class="container">
+		<div class="weather-wrapper container border mt-2 bg-light">
+			<div class="row py-md-2 px-md-2">
+				<h3>
+					<b>Weather Today</b>
+				</h3>
+			</div>
+
+			<!-- Weather Card -->
+			<div class="row border-top py-md-2 px-md-2">
+
+				<div class="weather-card border py-md-3 px-md-3">
+				<h3 th:text="${weatherTop.city.city}"></h3>
+					<h1 th:inline="text">[[${weatherTop.weatherDto.currently.getTemperatureInCelsius()}]] &#8451;</h1>
+					<h6 th:inline="text">[[${weatherTop.weatherDto.currently.icon}]]</h6> 
+					<br><br>
+					<h6 th:inline="text">[[${weatherTop.weatherDto.currently.getTimeDay()}]]</h6>
+				</div>
+
+				<!-- Weather Statistics -->
+				<div class="col-4">
+					<h3>
+						<b>Weather Statistics</b>
+					</h3>
+					<br />
+					<h5 th:inline="text">Precipitation: [[${weatherTop.weatherDto.currently.precipIntensity}]] %</h5>
+					<br />
+					<h5 th:inline="text">Wind Speed: [[${weatherTop.weatherDto.currently.windSpeed}]] km/h</h5>
+					<br />
+					<h5 th:inline="text">Wind Direction: [[${weatherTop.weatherDto.currently.windBearing}]]</h5>
+					<br />
+					<h5 th:inline="text">Air Pressure: [[${weatherTop.weatherDto.currently.pressure}]] mb</h5>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
